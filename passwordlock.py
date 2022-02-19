@@ -1,7 +1,7 @@
-from ast import Delete
+
 import string
 import random
-import pyperclip
+
 
 class Person:
     person_list=[]
@@ -49,7 +49,7 @@ class Credentials():
     @classmethod
     def copy_password(cls,site):
         verified_credentials = Credentials.verify_credential(site)
-        pyperclip.copy(verified_credentials.password)
+        #return pyperclip.copy(verified_credentials.password)
 
     @classmethod
     def check_credential_exit(cls,site):
