@@ -9,3 +9,10 @@ class person:
 
     def _save_person(self):
         person.person_list.append(self)
+
+    @classmethod
+    def dispay_person(cls):
+        return cls.person_list
+        
+
+    
