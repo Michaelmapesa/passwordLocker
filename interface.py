@@ -13,6 +13,12 @@ def display_person():
 
 def login_person(username,password):
     check_person = Credentials.verify_person(username,password)
+    return check_person
+
+def create_new_credential(site,username,password):
+    new_credential = Credentials(site,username,password)
+    return new_credential
+
 
 
 
