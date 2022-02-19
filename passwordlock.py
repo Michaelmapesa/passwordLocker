@@ -18,5 +18,13 @@ class Person:
     def delete_person(self):
         Person.person_list.remove(self)
 
+class Credentials():
+    Credentials_list=[]
+    @classmethod
+    def verify_person(cls,username,password):
+        a_person=''
+        for person in Person.person_list:
+            return a_person
+
 
     
