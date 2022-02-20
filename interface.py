@@ -68,7 +68,16 @@ def main():
         print("")
 
     elif letter=="b":
-        
+        print(" ")
+        print("Fill in your account details below:")
+        username=input("User name:")
+        password=input("password:")
+        login=login_person(username,password)
+        if login_person==login:
+            print("You have successfully login to Password locker")
+            print("\n")
+
+    
 
 
 
