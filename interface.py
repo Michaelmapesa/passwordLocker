@@ -1,5 +1,7 @@
 from enum import auto
 from tabnanny import check
+
+from click import option
 from passwordlock import Person,Credentials
 
 def create_Person(username,password):
@@ -38,6 +40,23 @@ def generate_password():
 
 def copy_password(site):
     return Credentials.copy_password(site)
+
+
+def main():
+    print('')
+    print("Hi! Welcome to Password Locker...\n Enter a choice below to proceed. \n a---Sign up for an account \n  b---Login with your account \n")
+    letter=input("").lower().strip()
+    if letter=="a":
+        print("Please sign up for an account")
+        print("")
+        username=input("Enter your user_name:")
+        while True:
+            print("You have option either to create your own pass.. or we generate? \n b---Enter your password: \n c---Generate random password")
+            option=input().lower().strip()
+            if option=='b':
+                password=input("Enter password\n")
+                break
+
 
 
 
