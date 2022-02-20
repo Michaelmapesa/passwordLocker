@@ -1,3 +1,4 @@
+from gettext import find
 from re import search
 from passwordlock import Person,Credentials
 
@@ -30,6 +31,9 @@ def delete_credentials(credentials):
 
 def verify_credential(site):
     return Credentials.if_credential_exist(site)
+
+def check_credentials(site):
+    return Credentials.verify_credential
 
 def generate_password():
     auto_password=Credentials.generate_password()
@@ -110,7 +114,48 @@ def main():
                     print("no credential found,try creating")
             elif letter=="g":
                 print("Enter name of the site you want to search")
-                search_name=input()
+                search_name=input().lower()
+                print(f"Site name:{search_credential.site}")
+                print("\n")
+                print(f"User name:{search_credential.userName} password:{search_credential.password}")
+                print("\n")
+            else:
+                print("\n")
+                print("credential does not exist")
+                print("\n")
+        elif letter=="g":
+            print("Write the name of the Credential you want to search")
+            search_name=input().lower()
+            if verify_credential(search_name):
+                search_credential=verify_credential(search_name)
+                print(f"Site name:{search_credential.site}")
+                print("\n")
+                print(f"User name:{search_credential.userName} password:{search_credential.password}")
+                print("\n")
+            else:
+                print("credential does not exist")
+                print("\n")
+
+        elif letter=="i":
+            print("Enter credential name for deletion")
+            search_name=input().lower()
+            if verify_credential(search_name):
+                search_credential=verify_credential(search_name)
+                print("\n")
+                search_credential.delete_credentials()
+                print(f"credential {search_credential.site} has been deleted")
+                print("\n")
+            else:
+                print("Credential could not be found")
+
+                
+
+
+
+        
+
+
+
 
 
 
