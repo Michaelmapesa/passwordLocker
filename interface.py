@@ -1,3 +1,4 @@
+from re import search
 from passwordlock import Person,Credentials
 
 def create_Person(username,password):
@@ -103,7 +104,13 @@ def main():
                 print("view list of available sites")
                 print("\n")
                 for site in display_sites_details():
-                    print(f"site:")
+                    print(f"site:{site.site}\n user Name:{username}\npassword:{password}")
+                    print("\n")
+                else:
+                    print("no credential found,try creating")
+            elif letter=="g":
+                print("Enter name of the site you want to search")
+                search_name=input()
 
 
 
