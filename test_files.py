@@ -15,6 +15,21 @@ class TestClass(unittest.TestCase):
         self.new_person.save_person()
         self.assertEqual(len(Person.person_list),1)
 
+class TestCredentials(unittest.TestCase):
+    def setUp(self):
+        
+        self.new_credential=Credentials("Youtube",'Mapesa','Mapesa789')
+
+    def test_init(self):
+        self.assertEqual(self.new_credential.site,'Youtube')
+        self.assertEqual(self.new_credential.userName,'Mapesa')
+        self.assertEqual(self.new_credential.password,'Mapesa789')
+
+    def save_credential_test(self):
+        self.new_credential.save_details()
+        self.assertEqual(len(Credentials.credentials_list),1)
+
+
     def tearDown(self):
         Credentials.credentials_list = []
 
