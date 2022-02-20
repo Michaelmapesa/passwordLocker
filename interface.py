@@ -152,7 +152,18 @@ def main():
             password=generate_password()
             print(f"Your generated password is {password}")
 
-        
+        elif letter=="EX":
+            print("You are now exit the app")
+            break
+        else:
+            print("Try entry again")
+
+    else:
+        print("Enter correct inputs")
+
+if __name__=='_main_':
+    main()
+
 
 
 
