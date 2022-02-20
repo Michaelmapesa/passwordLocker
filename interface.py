@@ -148,7 +148,11 @@ def main():
             else:
                 print("Credential could not be found")
 
-                
+        elif letter=="h":
+            password=generate_password()
+            print(f"Your generated password is {password}")
+
+        
 
 
 
