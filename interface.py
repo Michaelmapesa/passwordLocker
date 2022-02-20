@@ -1,9 +1,3 @@
-from enum import auto
-from operator import truth
-import site
-from tabnanny import check
-
-from click import option
 from passwordlock import Person,Credentials
 
 def create_Person(username,password):
@@ -106,7 +100,7 @@ def main():
             print('\n')
         elif letter=="f":
             if display_sites_details():
-                
+
 
 
 
