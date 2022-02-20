@@ -1,5 +1,4 @@
-from gettext import find
-from re import search
+
 from passwordlock import Person,Credentials
 
 def create_Person(username,password):
