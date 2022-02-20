@@ -51,11 +51,26 @@ def main():
         print("")
         username=input("Enter your user_name:")
         while True:
-            print("You have option either to create your own pass.. or we generate? \n b---Enter your password: \n c---Generate random password")
+            print("You have option either to create your own pass.. or we generate? \n c---Enter your password: \n d---Generate random password")
             option=input().lower().strip()
-            if option=='b':
+            if option=='c':
                 password=input("Enter password\n")
                 break
+            elif option=="d":
+                password=generate_password()
+                break
+            else:
+                print("Error,try again")
+
+        save_person(create_Person(username,password))
+        print("")
+        print(f"Your account has been created successful with username: {username} and password: {password}")
+        print("")
+
+    elif letter=="b":
+        
+
+
 
 
 
