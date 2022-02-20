@@ -100,6 +100,12 @@ def main():
             print('\n')
         elif letter=="f":
             if display_sites_details():
+                print("view list of available sites")
+                print("\n")
+                for site in display_sites_details():
+                    print(f"site:")
+
+
 
 
 
