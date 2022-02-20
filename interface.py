@@ -1,4 +1,6 @@
 from enum import auto
+from operator import truth
+import site
 from tabnanny import check
 
 from click import option
@@ -18,8 +20,8 @@ def login_person(username,password):
     check_person = Credentials.verify_person(username,password)
     return check_person
 
-def create_new_credential(site,username,password):
-    new_credential = Credentials(site,username,password)
+def create_new_credential(site,userName,password):
+    new_credential = Credentials(site,userName,password)
     return new_credential
 
 def save_credentials(credentials):
@@ -77,7 +79,41 @@ def main():
             print("You have successfully login to Password locker")
             print("\n")
 
-    
+    while True:
+        print("continue with the below options to proceed. \n e---Create a new credential \n f---Display Credentials \n g--Find a credential \n h---Generate a random password \n i---Delete credential  \n EX---Exit app\n")
+        letter=input().lower().strip()
+        if letter=="e":
+            print("create a new Credential:")
+            print("")
+            print("Site name..")
+            site=input().lower()
+            print("enter your site username..")
+            userName=input()
+            while True:
+                print("You have option either to create your own pass.. or we generate? \n c---Enter your password: \n d---Generate random password")
+                option=input().lower().strip()
+                if option=='c':
+                    password=input("Enter password\n")
+                    break
+                elif option=="d":
+                    password=generate_password()
+                    break
+                else:
+                    print("Error,try again")
+            save_credentials(create_new_credential(site,userName,password))
+            print("\n")
+            print(f"the site was created successfully {site},{userName},{password}")
+            print('\n')
+        elif letter=="f":
+            if display_sites_details():
+                
+
+
+
+
+
+                
+
 
 
 
