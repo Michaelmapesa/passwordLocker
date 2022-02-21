@@ -1,73 +1,77 @@
-
-import string
 import random
-
-
+import string
+#import pyperclip
 class Person:
-    person_list=[]
-    def _init_(self,username,password):
-       self.username = username
-       self.password = password
+    
+    person_list = []
 
-    def _save_person(self):
+    def __init__(self, username, password):
+        
+        self.username = username
+        self.password = password
+
+    def save_person(self):
+       
         Person.person_list.append(self)
+    
 
     @classmethod
-    def dispay_person(cls):
+    def display_person(cls):
         return cls.person_list
 
     def delete_person(self):
+       
         Person.person_list.remove(self)
 
 class Credentials():
-    credentials_list=[]
+    
+    credentials_list = []
     @classmethod
-    def verify_person(cls,username,password):
-        a_person=''
+    def verify_person(cls,username, password):
+       
+        a_person = ""
         for person in Person.person_list:
             if(person.username == username and person.password == password):
-                a_person == person.username
+                    a_person == person.username
         return a_person
 
-    def _init_(self,site,username,password):
-        self.site=site
-        self.username=username
-        self.password=password
-
-    def save_credentials(self):
+    def __init__(self,site,userName, password):
+        
+        self.site = site
+        self.userName = userName
+        self.password = password
+    
+    def save_details(self):
+        
         Credentials.credentials_list.append(self)
 
     def delete_credentials(self):
+        
         Credentials.credentials_list.remove(self)
-
+    
     @classmethod
-    def verify_credential(cls,site):
-        for credentials in cls.credentials_list:
-            if credentials.site == site:
-                return credentials
-
+    def verify_credential(cls, site):
+        
+        for credential in cls.credentials_list:
+            if credential.site == site:
+                return credential
     @classmethod
     def copy_password(cls,site):
-        verified_credentials = Credentials.verify_credential(site)
-        return pyperclip.copy(verified_credentials.password)
+        found_credentials = Credentials.verify_credential(site)
+        pyperclip.copy(found_credentials.password)
 
     @classmethod
-    def check_credential_exit(cls,site):
+    def if_credential_exist(cls, site):
+        
         for credential in cls.credentials_list:
             if credential.site == site:
                 return True
         return False
-
     @classmethod
     def display_credentials(cls):
+        
         return cls.credentials_list
 
-    def generate_password(stringLength=8,char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
-        gen_pass=''.join(random.choice(char)for _ in range(stringLength))
-        return gen_pass
-
-
-
-
-
-    
+    def generatePassword(stringLength=8):
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength))

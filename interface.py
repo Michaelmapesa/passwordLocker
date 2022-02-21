@@ -1,6 +1,16 @@
 
 from passwordlock import Person,Credentials
 
+def function():
+	print("  ")
+	print("  ")
+	print("  ")
+	print("  ")
+	print("  ")
+	print("  ")
+function()
+
+
 def create_Person(username,password):
     new_person=Person(username,password)
     return new_person
@@ -160,7 +170,7 @@ def main():
     else:
         print("Enter correct inputs")
 
-if __name__=='_main_':
+if __name__ == '__main__':
     main()
 
 
