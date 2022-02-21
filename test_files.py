@@ -74,7 +74,6 @@ class TestCredentials(unittest.TestCase):
 
     def test_display_all_saved_credentials(self):
        
-
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
 if __name__ == "__main__":

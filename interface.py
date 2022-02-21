@@ -1,15 +1,4 @@
-
 from passwordlock import Person,Credentials
-
-def function():
-	print("  ")
-	print("  ")
-	print("  ")
-	print("  ")
-	print("  ")
-	print("  ")
-function()
-
 
 def create_Person(username,password):
     new_person=Person(username,password)
